@@ -4,10 +4,16 @@ import com.chris.mybais.po.ItemsCustom;
 import com.chris.mybais.service.ItemsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.json.JSONObject;
 import java.util.List;
 
 /**
@@ -17,6 +23,7 @@ import java.util.List;
 @Controller
 //为了对url进行分类管理 ，可以在这里定义根路径，最终访问url是根路径+子路径
 //比如：商品列表：/items/queryItems.action
+@RequestMapping("/user")
 public class ItemsController {
 
     @Autowired
@@ -44,5 +51,21 @@ public class ItemsController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/saveOrUpdate", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public ResponseEntity<String> saveOrUpdate(@RequestParam String username, @RequestParam String phone, @RequestParam String addrss, @RequestParam String remark) {
+
+        JSONObject json = new JSONObject();
+        try {
+            json.put("username", username);
+            json.put("phone", phone);
+            json.put("addrss", addrss);
+            json.put("remark", remark);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        ResponseEntity<String> responseEntity = new ResponseEntity<>(json.toString(), HttpStatus.OK);
+        return responseEntity;
+    }
 
 }
