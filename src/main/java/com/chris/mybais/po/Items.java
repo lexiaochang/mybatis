@@ -33,12 +33,4 @@ public class Items {
         this.descrip = descrip;
     }
 
-    @Override
-    public String toString() {
-        return "Items{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", descrip='" + descrip + '\'' +
-                '}';
-    }
 }
