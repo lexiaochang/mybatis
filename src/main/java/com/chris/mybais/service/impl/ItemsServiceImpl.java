@@ -6,19 +6,26 @@ import com.chris.mybais.po.ItemsQueryVo;
 import com.chris.mybais.service.ItemsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by Chris on 2017/11/21.
  */
-
+@Service
 public class ItemsServiceImpl implements ItemsService {
 
     @Autowired
     private ItemsMapperCustom itemsMapperCustom;
 
+    @Override
     public List<ItemsCustom> findItemsList(ItemsQueryVo itemsQueryVo) throws Exception {
         return itemsMapperCustom.findItemsList(itemsQueryVo);
+    }
+
+    @Override
+    public ItemsCustom loadPerson(Long id) throws Exception {
+        return itemsMapperCustom.loadPerson(id);
     }
 }

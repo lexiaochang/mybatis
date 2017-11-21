@@ -68,4 +68,20 @@ public class ItemsController {
         return responseEntity;
     }
 
+    @RequestMapping(value = "/load", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public ResponseEntity<String> load(@RequestParam String id) throws Exception {
+        long l = Long.parseLong(id);
+        ItemsCustom itemsCustom = itemsService.loadPerson(l);
+        JSONObject json = new JSONObject();
+        try {
+            json.put("name", itemsCustom.getName());
+            json.put("descrip", itemsCustom.getDescrip());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        ResponseEntity<String> responseEntity = new ResponseEntity<>(json.toString(), HttpStatus.OK);
+        return responseEntity;
+    }
+
 }

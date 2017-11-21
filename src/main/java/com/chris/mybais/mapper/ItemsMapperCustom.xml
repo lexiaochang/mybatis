@@ -26,4 +26,9 @@
         </where>
     </select>
 
+    <insert id="loadPerson" parameterType="com.chris.mybais.po.ItemsCustom" >
+        insert into user (id, name, descrip)
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{descrip,jdbcType=VARCHAR})
+    </insert>
+
 </mapper>
