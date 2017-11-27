@@ -28,4 +28,9 @@ public class ItemsServiceImpl implements ItemsService {
     public ItemsCustom loadPerson(Long id) throws Exception {
         return itemsMapperCustom.loadPerson(id);
     }
+
+    @Override
+    public ItemsCustom selectPerson(Long id) throws Exception {
+        return  itemsMapperCustom.selectPerson(id);
+    }
 }

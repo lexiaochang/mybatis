@@ -35,14 +35,14 @@ public class ItemsController {
     @RequestMapping("/queryItems")
     //实现 对queryItems方法和url进行映射，一个方法对应一个url
     //一般建议将url和方法写成一样
-    public ModelAndView queryItems() throws Exception{
+    public ModelAndView queryItems() throws Exception {
         //调用service查找数据库，查询商品列表
         List<ItemsCustom> itemsList = itemsService.findItemsList(null);
 
         //返回ModelAndView
         ModelAndView modelAndView = new ModelAndView();
         //相当于request的setAttribute方法,在jsp页面中通过itemsList取数据
-        modelAndView.addObject("itemsList",itemsList);
+        modelAndView.addObject("itemsList", itemsList);
 
         //指定视图
         //下边的路径，如果在视图解析器中配置jsp的路径前缀和后缀，修改为items/itemsList
@@ -72,19 +72,35 @@ public class ItemsController {
 
     @RequestMapping(value = "/load", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public ResponseEntity<String> load(@RequestParam String id,@RequestParam String name,@RequestParam String descrip) throws Exception {
+    public ResponseEntity<String> load(@RequestParam String id, @RequestParam String name, @RequestParam String descrip) throws Exception {
         long l = Long.parseLong(id);
         ItemsCustom itemsCustom = itemsService.loadPerson(l);
         JSONObject json = new JSONObject();
         try {
-            json.put("1","22");
-//            json.put("name", itemsCustom.getName());
-//            json.put("descrip", itemsCustom.getDescrip());
+            json.put("1", "22");
+            //            json.put("name", itemsCustom.getName());
+            //            json.put("descrip", itemsCustom.getDescrip());
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         ResponseEntity<String> responseEntity = new ResponseEntity<>(json.toString(), HttpStatus.OK);
         return responseEntity;
+    }
+
+    @RequestMapping(value = "/selectPerson", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public ResponseEntity<String> selectPerson(@RequestParam String id) throws Exception {
+        long lID = Long.parseLong(id);
+        ItemsCustom itemsCustom = itemsService.selectPerson(lID);
+        JSONObject json = new JSONObject();
+        try {
+            json.put("name", itemsCustom.getName());
+            json.put("descrip", itemsCustom.getDescrip());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        ResponseEntity<String> responseEntity1 = new ResponseEntity<>(json.toString(), HttpStatus.OK);
+        return responseEntity1;
     }
 
 }
