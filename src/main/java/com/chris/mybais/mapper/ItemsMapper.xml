@@ -32,7 +32,9 @@
     </insert>
 
 
-    <select id="selectPerson" parameterType="int" resultType="hashmap">   SELECT * FROM user WHERE ID = #{id}</select>
+    <select id="selectPerson" parameterType="Long" resultType="com.chris.mybais.po.ItemsCustom">
+          SELECT * FROM user WHERE ID = #{id}
+    </select>
 
 
 </mapper>
