@@ -26,8 +26,6 @@
         values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{descrip,jdbcType=VARCHAR})
     </insert>-->
 
-
-
     <insert id="loadPerson" parameterType="com.chris.mybais.po.ItemsCustom" >
         insert into user (id, name, descrip)
         values ('3', 'name123', 'des123')
