@@ -3,7 +3,7 @@ package com.chris.mybais.controller;
 import com.chris.mybais.po.ItemsCustom;
 import com.chris.mybais.service.ItemsService;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.json.JSONObject;
+
 import java.util.List;
+
+import javax.annotation.Resource;
 
 /**
  * Created by Chris on 2017/11/21.
@@ -26,7 +28,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class ItemsController {
 
-    @Autowired
+    @Resource
     private ItemsService itemsService;
 
     //商品查询列表
@@ -70,13 +72,14 @@ public class ItemsController {
 
     @RequestMapping(value = "/load", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public ResponseEntity<String> load(@RequestParam String id) throws Exception {
+    public ResponseEntity<String> load(@RequestParam String id,@RequestParam String name,@RequestParam String descrip) throws Exception {
         long l = Long.parseLong(id);
         ItemsCustom itemsCustom = itemsService.loadPerson(l);
         JSONObject json = new JSONObject();
         try {
-            json.put("name", itemsCustom.getName());
-            json.put("descrip", itemsCustom.getDescrip());
+            json.put("1","22");
+//            json.put("name", itemsCustom.getName());
+//            json.put("descrip", itemsCustom.getDescrip());
         } catch (Exception ex) {
             ex.printStackTrace();
         }

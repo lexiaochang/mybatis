@@ -1,6 +1,6 @@
 package com.chris.mybais.service.impl;
 
-import com.chris.mybais.mapper.ItemsMapperCustom;
+import com.chris.mybais.mapper.ItemsMapper;
 import com.chris.mybais.po.ItemsCustom;
 import com.chris.mybais.po.ItemsQueryVo;
 import com.chris.mybais.service.ItemsService;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemsServiceImpl implements ItemsService {
 
     @Autowired
-    private ItemsMapperCustom itemsMapperCustom;
+    private ItemsMapper itemsMapperCustom;
 
     @Override
     public List<ItemsCustom> findItemsList(ItemsQueryVo itemsQueryVo) throws Exception {

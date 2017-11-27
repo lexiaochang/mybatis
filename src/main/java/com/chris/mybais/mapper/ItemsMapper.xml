@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.chris.mybais.mapper.ItemsMapperCustom" >
+<mapper namespace="com.chris.mybais.mapper.ItemsMapper" >
 
-    <!-- 定义商品查询的sql片段，就是商品查询条件 -->
     <sql id="query_items_where">
-        <!-- 使用动态sql，通过if判断，满足条件进行sql拼接 -->
-        <!-- 商品查询条件通过ItemsQueryVo包装对象 中itemsCustom属性传递 -->
+
         <if test="itemsCustom!=null">
             <if test="itemsCustom.name!=null and itemsCustom.name!=''">
                 items.name LIKE '%${itemsCustom.name}%'
@@ -14,10 +12,7 @@
 
     </sql>
 
-    <!-- 商品列表查询 -->
-    <!-- parameterType传入包装对象(包装了查询条件)
-        resultType建议使用扩展对象
-     -->
+
     <select id="findItemsList" parameterType="com.chris.mybais.po.ItemsQueryVo"
             resultType="com.chris.mybais.po.ItemsCustom">
         SELECT items.* FROM items
@@ -26,9 +21,13 @@
         </where>
     </select>
 
-    <insert id="loadPerson" parameterType="com.chris.mybais.po.ItemsCustom" >
+  <!--  <insert id="loadPerson" parameterType="com.chris.mybais.po.ItemsCustom" >
         insert into user (id, name, descrip)
         values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{descrip,jdbcType=VARCHAR})
+    </insert>-->
+    <insert id="loadPerson" parameterType="com.chris.mybais.po.ItemsCustom" >
+        insert into user (id, name, descrip)
+        values ('3', 'name123', 'des123')
     </insert>
 
 </mapper>

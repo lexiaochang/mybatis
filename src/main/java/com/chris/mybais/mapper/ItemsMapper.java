@@ -11,8 +11,9 @@ import java.util.List;
  * Created by Chris on 2017/11/21.
  */
 @Repository
-public interface ItemsMapperCustom {
+public interface ItemsMapper {
     //商品查询列表
     List<ItemsCustom> findItemsList(ItemsQueryVo itemsQueryVo)throws Exception;
+//    @Update(" insert into user (id, name, descrip) values ('3', 'name123', 'des123')")
     ItemsCustom loadPerson(Long id) throws Exception;
 }
