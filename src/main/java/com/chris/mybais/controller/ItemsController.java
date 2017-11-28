@@ -77,9 +77,8 @@ public class ItemsController {
         ItemsCustom itemsCustom = itemsService.loadPerson(l);
         JSONObject json = new JSONObject();
         try {
-            json.put("1", "22");
-            //            json.put("name", itemsCustom.getName());
-            //            json.put("descrip", itemsCustom.getDescrip());
+            json.put("name", itemsCustom.getName());
+            json.put("descrip", itemsCustom.getDescrip());
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -89,9 +88,9 @@ public class ItemsController {
 
     @RequestMapping(value = "/selectPerson", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public ResponseEntity<String> selectPerson(@RequestParam String id) throws Exception {
+    public ResponseEntity<String> selectPerson(@RequestParam String id, @RequestParam String name, @RequestParam String descrip) throws Exception {
         long lID = Long.parseLong(id);
-        ItemsCustom itemsCustom = itemsService.selectPerson(lID);
+        ItemsCustom itemsCustom = itemsService.selectPerson(lID,name,descrip);
         JSONObject json = new JSONObject();
         try {
             json.put("name", itemsCustom.getName());

@@ -26,13 +26,13 @@
         values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{descrip,jdbcType=VARCHAR})
     </insert>-->
 
-    <insert id="loadPerson" parameterType="com.chris.mybais.po.ItemsCustom" >
+    <insert id="selectPerson" parameterType="com.chris.mybais.po.ItemsCustom">
         insert into user (id, name, descrip)
-        values ('3', 'name123', 'des123')
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{descrip,jdbcType=VARCHAR})
     </insert>
 
 
-    <select id="selectPerson" parameterType="Long" resultType="com.chris.mybais.po.ItemsCustom">
+    <select id="loadPerson" parameterType="Long" resultType="com.chris.mybais.po.ItemsCustom">
           SELECT * FROM user WHERE ID = #{id}
     </select>
 
