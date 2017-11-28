@@ -13,5 +13,5 @@ public interface AutoIncrementService {
 
     String deleteData(Long id) throws Exception;
 
-
+    String  updateData(AutoIncrementEntity autoIncrementEntity) throws Exception;
 }

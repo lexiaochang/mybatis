@@ -12,4 +12,5 @@ public interface AutoIncrementMapper {
     void insertData(AutoIncrementEntity autoIncrementEntity) throws Exception;
     AutoIncrementEntity selectData(Long id) throws Exception;
     void deleteData(Long id) throws Exception;
+    void updateData(AutoIncrementEntity autoIncrementEntity) throws Exception;
 }

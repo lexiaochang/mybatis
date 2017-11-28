@@ -68,4 +68,18 @@ public class AutoIncrementController {
         return responseEntity;
     }
 
+    @RequestMapping(value = "/updatedata", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public ResponseEntity<String> updateData(@ModelAttribute AutoIncrementEntity autoIncrementEntity) throws Exception {
+        String s = mAutoIncrementService.updateData(autoIncrementEntity);
+        JSONObject json = new JSONObject();
+        try {
+            json.put("result", s);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        ResponseEntity<String> responseEntity = new ResponseEntity<>(json.toString(), HttpStatus.OK);
+        return responseEntity;
+    }
+
 }

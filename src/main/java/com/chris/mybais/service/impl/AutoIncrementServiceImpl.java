@@ -32,4 +32,10 @@ public class AutoIncrementServiceImpl implements AutoIncrementService{
         mAutoIncrementEntityMapper.deleteData(id);
         return "deleteSuccess";
     }
+
+    @Override
+    public String updateData(AutoIncrementEntity autoIncrementEntity) throws Exception {
+        mAutoIncrementEntityMapper.updateData(autoIncrementEntity);
+        return "updateSuccess";
+    }
 }

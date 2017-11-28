@@ -15,4 +15,18 @@
         delete from auto_increment
         where id = #{id,jdbcType=INTEGER}
     </delete>
+
+    <update id="updateData" parameterType="com.chris.mybais.po.AutoIncrementEntity" >
+        update auto_increment
+        <set >
+            <if test="name != null" >
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null" >
+                age = #{age,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = '2'
+    </update>
+
 </mapper>
