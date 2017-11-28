@@ -34,8 +34,8 @@ public class AutoIncrementController {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        ResponseEntity<String> responseEntity1 = new ResponseEntity<>(json.toString(), HttpStatus.OK);
-        return responseEntity1;
+        ResponseEntity<String> responseEntity = new ResponseEntity<>(json.toString(), HttpStatus.OK);
+        return responseEntity;
     }
 
 
