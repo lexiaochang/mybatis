@@ -10,4 +10,9 @@
     <select id="selectData" parameterType="Long" resultType="com.chris.mybais.po.AutoIncrementEntity">
         SELECT * FROM auto_increment WHERE ID = #{id}
     </select>
+
+    <delete id="deleteData" parameterType="java.lang.Long" >
+        delete from auto_increment
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
 </mapper>

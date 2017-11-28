@@ -26,4 +26,10 @@ public class AutoIncrementServiceImpl implements AutoIncrementService{
     public AutoIncrementEntity selectData(Long id) throws Exception {
         return mAutoIncrementEntityMapper.selectData(id);
     }
+
+    @Override
+    public String deleteData(Long id) throws Exception {
+        mAutoIncrementEntityMapper.deleteData(id);
+        return "deleteSuccess";
+    }
 }

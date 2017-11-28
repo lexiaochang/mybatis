@@ -54,4 +54,18 @@ public class AutoIncrementController {
         return responseEntity;
     }
 
+    @RequestMapping(value = "/deletedata", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public ResponseEntity<String> deleteData(@RequestParam Long id) throws Exception {
+        String s = mAutoIncrementService.deleteData(id);
+        JSONObject json = new JSONObject();
+        try {
+            json.put("result", s);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        ResponseEntity<String> responseEntity = new ResponseEntity<>(json.toString(), HttpStatus.OK);
+        return responseEntity;
+    }
+
 }

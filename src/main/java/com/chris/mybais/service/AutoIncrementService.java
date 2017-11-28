@@ -10,4 +10,8 @@ public interface AutoIncrementService {
     String insertData(AutoIncrementEntity autoIncrementEntity) throws Exception;
 
     AutoIncrementEntity selectData(Long id) throws Exception;
+
+    String deleteData(Long id) throws Exception;
+
+
 }
