@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,8 +28,7 @@ import javax.annotation.Resource;
 //比如：商品列表：/items/queryItems.action
 @RequestMapping("/user")
 public class ItemsController {
-//    @Autowired
-//    private ItemsCustom mItemsCustom;
+
     @Resource
     private ItemsService itemsService;
 
@@ -89,16 +89,11 @@ public class ItemsController {
 
     @RequestMapping(value = "/selectPerson", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public ResponseEntity<String> selectPerson(@RequestParam String id, @RequestParam String name, @RequestParam String descrip) throws Exception {
-        long lID = Long.parseLong(id);
-        ItemsCustom mItemsCustom = new ItemsCustom();
-        mItemsCustom.setDescrip(descrip);
-        mItemsCustom.setName(name);
-        mItemsCustom.setId(lID);
+    public ResponseEntity<String> selectPerson(@ModelAttribute ItemsCustom mItemsCustom) throws Exception {
         itemsService.selectPerson(mItemsCustom);
         JSONObject json = new JSONObject();
         try {
-           json.put("success","ok");
+            json.put("success", "ok");
         } catch (Exception ex) {
             ex.printStackTrace();
         }

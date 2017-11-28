@@ -1,10 +1,12 @@
 package com.chris.mybais.po;
 
+import java.io.Serializable;
+
 /**
  * Created by Chris on 2017/11/21.
  */
 
-public class Items {
+public class Items implements Serializable{
     private Long id;
     private String name;
     private String descrip;
