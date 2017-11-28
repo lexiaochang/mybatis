@@ -16,9 +16,7 @@ public interface ItemsMapper {
     //商品查询列表
     List<ItemsCustom> findItemsList(ItemsQueryVo itemsQueryVo) throws Exception;
 
-//        @Insert(" insert into user (id, name, descrip) values ('3', 'name123', 'des123')")
     ItemsCustom loadPerson(Long id) throws Exception;
 
-//    @Select("SELECT * FROM user WHERE ID = #{id}")
     void selectPerson(ItemsCustom itemsCustom) throws Exception;
 }
