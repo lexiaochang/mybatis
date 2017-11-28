@@ -1,0 +1,24 @@
+package com.chris.mybais.service.impl;
+
+import com.chris.mybais.mapper.AutoIncrementMapper;
+import com.chris.mybais.po.AutoIncrementEntity;
+import com.chris.mybais.service.AutoIncrementService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by Chris on 2017/11/28.
+ */
+@Service
+public class AutoIncrementServiceImpl implements AutoIncrementService{
+
+    @Autowired
+    private AutoIncrementMapper mAutoIncrementEntityMapper;
+
+    @Override
+    public String insertData(AutoIncrementEntity autoIncrementEntity) throws Exception {
+        mAutoIncrementEntityMapper.insertData(autoIncrementEntity);
+        return "ok,lalala";
+    }
+}

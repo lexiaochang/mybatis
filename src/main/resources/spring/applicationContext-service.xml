@@ -2,7 +2,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
-    <!-- 商品管理的service -->
     <bean id="itemsService" class="com.chris.mybais.service.impl.ItemsServiceImpl"/>
+
+    <bean id="mAutoIncrementService" class="com.chris.mybais.service.impl.AutoIncrementServiceImpl"/>
 
 </beans>
