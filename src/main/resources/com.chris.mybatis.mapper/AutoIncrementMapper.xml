@@ -7,5 +7,7 @@
         values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR})
     </insert>
 
-
+    <select id="selectData" parameterType="Long" resultType="com.chris.mybais.po.AutoIncrementEntity">
+        SELECT * FROM auto_increment WHERE ID = #{id}
+    </select>
 </mapper>

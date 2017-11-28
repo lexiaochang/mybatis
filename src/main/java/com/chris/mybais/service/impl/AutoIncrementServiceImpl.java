@@ -21,4 +21,9 @@ public class AutoIncrementServiceImpl implements AutoIncrementService{
         mAutoIncrementEntityMapper.insertData(autoIncrementEntity);
         return "ok,lalala";
     }
+
+    @Override
+    public AutoIncrementEntity selectData(Long id) throws Exception {
+        return mAutoIncrementEntityMapper.selectData(id);
+    }
 }

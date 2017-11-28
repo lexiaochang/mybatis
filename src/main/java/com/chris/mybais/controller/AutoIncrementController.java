@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -38,5 +39,19 @@ public class AutoIncrementController {
         return responseEntity;
     }
 
+    @RequestMapping(value = "/selectdata", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public ResponseEntity<String> selectData(@RequestParam Long id) throws Exception {
+        AutoIncrementEntity autoIncrementEntity = mAutoIncrementService.selectData(id);
+        JSONObject json = new JSONObject();
+        try {
+            json.put("name", autoIncrementEntity.getName());
+            json.put("age", autoIncrementEntity.getAge());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        ResponseEntity<String> responseEntity = new ResponseEntity<>(json.toString(), HttpStatus.OK);
+        return responseEntity;
+    }
 
 }

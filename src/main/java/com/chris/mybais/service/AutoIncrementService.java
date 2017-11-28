@@ -8,4 +8,6 @@ import com.chris.mybais.po.AutoIncrementEntity;
 
 public interface AutoIncrementService {
     String insertData(AutoIncrementEntity autoIncrementEntity) throws Exception;
+
+    AutoIncrementEntity selectData(Long id) throws Exception;
 }
