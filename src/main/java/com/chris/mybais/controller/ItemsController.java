@@ -27,7 +27,8 @@ import javax.annotation.Resource;
 //比如：商品列表：/items/queryItems.action
 @RequestMapping("/user")
 public class ItemsController {
-
+//    @Autowired
+//    private ItemsCustom mItemsCustom;
     @Resource
     private ItemsService itemsService;
 
@@ -90,11 +91,14 @@ public class ItemsController {
     @ResponseBody
     public ResponseEntity<String> selectPerson(@RequestParam String id, @RequestParam String name, @RequestParam String descrip) throws Exception {
         long lID = Long.parseLong(id);
-        ItemsCustom itemsCustom = itemsService.selectPerson(lID,name,descrip);
+        ItemsCustom mItemsCustom = new ItemsCustom();
+        mItemsCustom.setDescrip(descrip);
+        mItemsCustom.setName(name);
+        mItemsCustom.setId(lID);
+        itemsService.selectPerson(mItemsCustom);
         JSONObject json = new JSONObject();
         try {
-            json.put("name", itemsCustom.getName());
-            json.put("descrip", itemsCustom.getDescrip());
+           json.put("success","ok");
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -20,5 +20,5 @@ public interface ItemsMapper {
     ItemsCustom loadPerson(Long id) throws Exception;
 
 //    @Select("SELECT * FROM user WHERE ID = #{id}")
-    ItemsCustom selectPerson(Long id,String name,String descrip) throws Exception;
+    void selectPerson(ItemsCustom itemsCustom) throws Exception;
 }
