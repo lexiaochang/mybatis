@@ -72,7 +72,7 @@ public class ItemsController {
 
     @RequestMapping(value = "/load", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public ResponseEntity<String> load(@RequestParam String id, @RequestParam String name, @RequestParam String descrip) throws Exception {
+    public ResponseEntity<String> load(@RequestParam String id) throws Exception {
         long l = Long.parseLong(id);
         ItemsCustom itemsCustom = itemsService.loadPerson(l);
         JSONObject json = new JSONObject();
