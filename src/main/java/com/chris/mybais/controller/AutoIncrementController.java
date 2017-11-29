@@ -1,10 +1,10 @@
 package com.chris.mybais.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.chris.mybais.http.HttpUtils;
 import com.chris.mybais.po.AutoIncrementEntity;
 import com.chris.mybais.service.AutoIncrementService;
 
-import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -83,10 +83,9 @@ public class AutoIncrementController {
             i = 200;
         }
         String message = sendPost();
-        JSONObject json = new JSONObject();
+        JSONObject json = JSONObject.parseObject(message);
         try {
             json.put("result", i);
-            json.put("message",message);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
