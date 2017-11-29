@@ -90,10 +90,10 @@ public class ItemsController {
     @RequestMapping(value = "/selectPerson", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ResponseEntity<String> selectPerson(@ModelAttribute ItemsCustom mItemsCustom) throws Exception {
-        itemsService.selectPerson(mItemsCustom);
+        int i = itemsService.selectPerson(mItemsCustom);
         JSONObject json = new JSONObject();
         try {
-            json.put("success", "ok");
+            json.put("success", i);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

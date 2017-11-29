@@ -18,5 +18,5 @@ public interface ItemsMapper {
 
     ItemsCustom loadPerson(Long id) throws Exception;
 
-    void selectPerson(ItemsCustom itemsCustom) throws Exception;
+    int selectPerson(ItemsCustom itemsCustom) throws Exception;
 }

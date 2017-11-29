@@ -30,8 +30,8 @@ public class ItemsServiceImpl implements ItemsService {
     }
 
     @Override
-    public void selectPerson(ItemsCustom itemsCustom) throws Exception {
-        itemsMapperCustom.selectPerson(itemsCustom);
-        return;
+    public int selectPerson(ItemsCustom itemsCustom) throws Exception {
+
+        return itemsMapperCustom.selectPerson(itemsCustom);
     }
 }

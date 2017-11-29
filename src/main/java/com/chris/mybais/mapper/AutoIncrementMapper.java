@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface AutoIncrementMapper {
-    void insertData(AutoIncrementEntity autoIncrementEntity) throws Exception;
+    int insertData(AutoIncrementEntity autoIncrementEntity) throws Exception;
     AutoIncrementEntity selectData(Long id) throws Exception;
-    void deleteData(Long id) throws Exception;
-    void updateData(AutoIncrementEntity autoIncrementEntity) throws Exception;
+    int deleteData(Long id) throws Exception;
+    int updateData(AutoIncrementEntity autoIncrementEntity) throws Exception;
 }

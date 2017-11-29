@@ -7,11 +7,11 @@ import com.chris.mybais.po.AutoIncrementEntity;
  */
 
 public interface AutoIncrementService {
-    String insertData(AutoIncrementEntity autoIncrementEntity) throws Exception;
+    int insertData(AutoIncrementEntity autoIncrementEntity) throws Exception;
 
     AutoIncrementEntity selectData(Long id) throws Exception;
 
-    String deleteData(Long id) throws Exception;
+    int deleteData(Long id) throws Exception;
 
-    String  updateData(AutoIncrementEntity autoIncrementEntity) throws Exception;
+    int updateData(AutoIncrementEntity autoIncrementEntity) throws Exception;
 }

@@ -28,10 +28,10 @@ public class AutoIncrementController {
     @RequestMapping(value = "/insertdata", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ResponseEntity<String> insertData(@ModelAttribute AutoIncrementEntity autoIncrementEntity) throws Exception {
-        String s = mAutoIncrementService.insertData(autoIncrementEntity);
+        int i = mAutoIncrementService.insertData(autoIncrementEntity);
         JSONObject json = new JSONObject();
         try {
-            json.put("success", s);
+            json.put("success", i+"");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -57,10 +57,10 @@ public class AutoIncrementController {
     @RequestMapping(value = "/deletedata", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ResponseEntity<String> deleteData(@RequestParam Long id) throws Exception {
-        String s = mAutoIncrementService.deleteData(id);
+        int i = mAutoIncrementService.deleteData(id);
         JSONObject json = new JSONObject();
         try {
-            json.put("result", s);
+            json.put("result", i+"");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -71,10 +71,10 @@ public class AutoIncrementController {
     @RequestMapping(value = "/updatedata", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ResponseEntity<String> updateData(@ModelAttribute AutoIncrementEntity autoIncrementEntity) throws Exception {
-        String s = mAutoIncrementService.updateData(autoIncrementEntity);
+        int i =  mAutoIncrementService.updateData(autoIncrementEntity);
         JSONObject json = new JSONObject();
         try {
-            json.put("result", s);
+            json.put("result", i);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

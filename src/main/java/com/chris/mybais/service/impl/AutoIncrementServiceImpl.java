@@ -17,9 +17,9 @@ public class AutoIncrementServiceImpl implements AutoIncrementService{
     private AutoIncrementMapper mAutoIncrementEntityMapper;
 
     @Override
-    public String insertData(AutoIncrementEntity autoIncrementEntity) throws Exception {
-        mAutoIncrementEntityMapper.insertData(autoIncrementEntity);
-        return "ok,lalala";
+    public int insertData(AutoIncrementEntity autoIncrementEntity) throws Exception {
+
+        return mAutoIncrementEntityMapper.insertData(autoIncrementEntity);
     }
 
     @Override
@@ -28,14 +28,13 @@ public class AutoIncrementServiceImpl implements AutoIncrementService{
     }
 
     @Override
-    public String deleteData(Long id) throws Exception {
-        mAutoIncrementEntityMapper.deleteData(id);
-        return "deleteSuccess";
+    public int deleteData(Long id) throws Exception {
+
+        return mAutoIncrementEntityMapper.deleteData(id);
     }
 
     @Override
-    public String updateData(AutoIncrementEntity autoIncrementEntity) throws Exception {
-        mAutoIncrementEntityMapper.updateData(autoIncrementEntity);
-        return "updateSuccess";
+    public int updateData(AutoIncrementEntity autoIncrementEntity) throws Exception {
+        return mAutoIncrementEntityMapper.updateData(autoIncrementEntity);
     }
 }

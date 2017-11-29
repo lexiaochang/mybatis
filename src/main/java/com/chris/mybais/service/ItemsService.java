@@ -13,5 +13,5 @@ public interface ItemsService {
     //商品查询列表
     List<ItemsCustom> findItemsList(ItemsQueryVo itemsQueryVo) throws Exception;
     ItemsCustom loadPerson(Long id) throws Exception;
-    void  selectPerson(ItemsCustom itemsCustom) throws Exception;
+    int selectPerson(ItemsCustom itemsCustom) throws Exception;
 }
