@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12f00b5b-d360-4900-b8c9-e0b6755c95e2" name="Default" comment="完成增删改查">
+    <list default="true" id="12f00b5b-d360-4900-b8c9-e0b6755c95e2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -68,16 +68,6 @@
               <folding>
                 <element signature="e#0#468#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext-dao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/mybatis/WEB-INF/classes/spring/applicationContext-dao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -613,7 +603,7 @@
       <workItem from="1511246195125" duration="7485000" />
       <workItem from="1511854120081" duration="3653000" />
       <workItem from="1511857829734" duration="9166000" />
-      <workItem from="1511919675403" duration="3764000" />
+      <workItem from="1511919675403" duration="3986000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1511246283633</created>
@@ -783,11 +773,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511924979279</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="完成增删改查">
+      <created>1511925472778</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1511925472778</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43769000" />
+    <option name="totallyTimeSpent" value="43991000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-52" width="1936" height="1176" extended-state="6" />
