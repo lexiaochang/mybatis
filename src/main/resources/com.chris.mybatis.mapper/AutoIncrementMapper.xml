@@ -26,7 +26,7 @@
                 age = #{age,jdbcType=INTEGER},
             </if>
         </set>
-        where id = '2'
+        where id = '3'
     </update>
 
 </mapper>
