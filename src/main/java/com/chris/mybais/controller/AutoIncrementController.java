@@ -61,6 +61,9 @@ public class AutoIncrementController {
     @ResponseBody
     public ResponseEntity<String> deleteData(@RequestParam Long id) throws Exception {
         int i = mAutoIncrementService.deleteData(id);
+        if (i==1){
+            i = 200;
+        }
         JSONObject json = new JSONObject();
         try {
             json.put("result", i);
@@ -75,6 +78,9 @@ public class AutoIncrementController {
     @ResponseBody
     public ResponseEntity<String> updateData(@ModelAttribute AutoIncrementEntity autoIncrementEntity) throws Exception {
         int i =  mAutoIncrementService.updateData(autoIncrementEntity);
+        if (i==1){
+            i = 200;
+        }
         JSONObject json = new JSONObject();
         try {
             json.put("result", i);
