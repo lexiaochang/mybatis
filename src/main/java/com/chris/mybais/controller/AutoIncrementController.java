@@ -31,7 +31,7 @@ public class AutoIncrementController {
         int i = mAutoIncrementService.insertData(autoIncrementEntity);
         JSONObject json = new JSONObject();
         try {
-            json.put("success", i+"");
+            json.put("success", i);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -60,7 +60,7 @@ public class AutoIncrementController {
         int i = mAutoIncrementService.deleteData(id);
         JSONObject json = new JSONObject();
         try {
-            json.put("result", i+"");
+            json.put("result", i);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

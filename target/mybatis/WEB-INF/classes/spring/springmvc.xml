@@ -14,13 +14,21 @@
 	 -->
     <context:component-scan base-package="com.chris.mybais.controller"></context:component-scan>
 
-
+    <!-- 使用mvc:annotation-driven 可以的代替以前的注解的处理器映射器和注解的处理器适配器。
+           并且还默认加载很多的参数绑定的方法，比如：json的转换解析器就被默认加载了。
+           实际开发就用这个 -->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
     <!-- 使用mvc:annotation-driven代替上面两个注解映射器和注解适配的配置
      mvc:annotation-driven默认加载很多的参数绑定方法，
      比如json转换解析器默认加载了，如果使用mvc:annotation-driven则不用配置上面的RequestMappingHandlerMapping和RequestMappingHandlerAdapter
      实际开发时使用mvc:annotation-driven
      -->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <!--<mvc:annotation-driven></mvc:annotation-driven>-->
 
     <!-- 视图解析器
     解析jsp,默认使用jstl,classpath下要有jstl的包
