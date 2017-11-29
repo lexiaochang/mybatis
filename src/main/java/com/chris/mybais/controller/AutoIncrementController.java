@@ -29,6 +29,9 @@ public class AutoIncrementController {
     @ResponseBody
     public ResponseEntity<String> insertData(@ModelAttribute AutoIncrementEntity autoIncrementEntity) throws Exception {
         int i = mAutoIncrementService.insertData(autoIncrementEntity);
+        if (i==1){
+            i = 200;
+        }
         JSONObject json = new JSONObject();
         try {
             json.put("success", i);
